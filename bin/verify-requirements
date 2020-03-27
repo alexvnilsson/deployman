@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bin/get-python3-dev
+bin/get-pip3
+bin/get-virtualenv

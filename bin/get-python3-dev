@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+trap ctrl_c INT
+
+function ctrl_c() {
+    exit 1
+}
+
+if ! dpkg -s python3-dev 1>/dev/null 2>/dev/null; then
+    sudo apt-get install -y python3-dev
+fi

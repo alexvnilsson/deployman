@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+trap ctrl_c INT
+
+function ctrl_c() {
+    exit 1
+}
+
+pip3 install virtualenv
