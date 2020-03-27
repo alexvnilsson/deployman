@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source .env/bin/activate
+pyinstaller --clean --noconfirm --onefile deployman/deploy.py 

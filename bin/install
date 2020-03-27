@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+bin/build
+
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
+fi
+
+if [[ -f "/usr/local/bin/deploy" ]]; then
+    rm /usr/local/bin/deploy
+fi
+
+sudo mv ./dist/deploy /usr/local/bin/deploy
+sudo chmod +x /usr/local/bin/deploy
+
+rm -rf ./dist
+rm -rf ./build
