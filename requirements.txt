@@ -1,7 +1,5 @@
 altgraph==0.17
 click==7.1.1
-fabulous==0.3.0
-pkg-resources==0.0.0
 PyInstaller==3.6
 PyYAML==5.3.1
 wasabi==0.6.0
