@@ -97,10 +97,9 @@ def fix_perms(manifest: str=None):
 
     p_user = manifest_data.process.user
     p_group = manifest_data.process.group
-
     output_dir_mod = 0o755
 
-    term.task(f"Update directory permissions for web root ({p_user}:{p_group} and {output_dir_mod})")
+    term.task(f"Update directory permissions for web root")
 
     try:
         os.chown(output_dir, p_user, p_group)
@@ -113,14 +112,14 @@ def fix_perms(manifest: str=None):
         term.exit()
 
     d_glob = f"{output_dir}/**"
-    f_glob = f"{output_dir}/**/*"
+    d_path_mod = 0o755
 
-    term.task("Update directory permissions (0o755)", d_glob)
+    term.task("Update directory permissions", d_glob)
 
     try:
         for d in glob(d_glob):
             d_path = os.path.realpath(os.path.join(output_dir, d))
-            os.chmod(d_path, 0o755)
+            os.chmod(d_path, d_path_mod)
 
         term.ok()
     except Exception as e:
@@ -128,18 +127,16 @@ def fix_perms(manifest: str=None):
         print(e)
         term.exit()
 
-    term.task("Update file permissions (0o644)", f_glob)   
+    f_glob = f"{output_dir}/**/*"
+    f_path_mod = 0o644
+
+    term.task("Update file permissions", f_glob)   
 
     try:
-        for d in glob(d_glob):
-            d_path = os.path.realpath(os.path.join(output_dir, d))
-            os.chown(d_path, p_user, p_group)
-            os.chmod(d_path, 0o755)
-
         for f in glob(f_glob):
             f_path = os.path.realpath(os.path.join(output_dir, f))
             os.chown(f_path, p_user, p_group)
-            os.chmod(f_path, 0o644)
+            os.chmod(f_path, f_path_mod)
 
         term.ok()
     except Exception as e:
