@@ -1,1 +1,16 @@
 remote_theme: allejo/jekyll-docs-theme
+license:
+  software: MIT License
+  software_url: http://opensource.org/licenses/MIT
+
+  docs: CC BY 3.0
+  docs_url: http://creativecommons.org/licenses/by/3.0/
+links:
+  header:
+    - title: GitHub
+      url: https://github.com/alexvnilsson/deployman
+  footer:
+    - title: GitHub
+      url: https://github.com/alexvnilsson/deployman
+    - title: Issues
+      url: https://github.com/alexvnilsson/deployman/issues?state=open
