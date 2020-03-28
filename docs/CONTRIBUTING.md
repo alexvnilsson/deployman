@@ -1,5 +1,12 @@
 # Contributing
 
+# Version control
+
+## Command-line tools
+
+* [Git](https://git-scm.com/)
+* [hub](https://hub.github.com/) for command-line interfacing with GitHub (optional) \[[docs/hub-cli](hub-cli.md)\]
+
 ## Git conventions
 
 By adhering to a standardized Git convention we can automate CI and release workflows.
